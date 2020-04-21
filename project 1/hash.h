@@ -17,9 +17,9 @@ class hashTable {
 		void deleteWord(string word);
 		void search(string word);
 	private:
-		const static size_t capacity = 1000;
+		const static size_t capacity = 10000;
 		std::vector<pair<string,int> > table[capacity];
 		size_t hash(string word) const;
-		
+
 };
 #endif

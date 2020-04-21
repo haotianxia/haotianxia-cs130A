@@ -36,20 +36,23 @@ int main(int argv, char** argc){
 	h1.deleteWord("hello");
 	b1.remove("hello");
 	b1.removePrint("hello");
-	b1.rangeSearch("yang to zoo");
-	*/
+	*/b1.rangeSearch("yang to zoo");
+	
 	stringstream ss(argc[1]);
 	string s;
 	while(ss.good()){
 		getline(ss, s, ',');
+		//cout<<s<<endl;
 		if(s.substr(0,1).compare(" ")==0){
 			s = s.substr(1);
 		}
+
 		
 		if(s.substr(0,6).compare("search")==0){
 			b1.search(s.substr(7));
 			h1.search(s.substr(7));
 		}
+
 		else if(s.substr(0,6).compare("insert")==0){
 			b1.insert(s.substr(7));
 			b1.insertPrint(s.substr(7));
@@ -59,9 +62,10 @@ int main(int argv, char** argc){
 			b1.remove(s.substr(7));
 			b1.removePrint(s.substr(7));
 			h1.deleteWord(s.substr(7));
+			b1.search("hello");
 		}
 		else if(s.substr(0,12).compare("range search")==0){
-			b1.rangeSearch(s.substr(13));
+			b1.rangeSearch("yang to zoo");
 		}
 	}
 }
