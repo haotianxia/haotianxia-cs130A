@@ -158,11 +158,17 @@ void minMaxHeap ::  percolatedown_min (int rootindex){
 		//cout<<array[rootindex]<<' ';
 		//cout<<array[secondMinIndex]<<' ';
 		swap(secondMinIndex,rootindex);
-		if (find(grandChildrenIndexs.begin(), grandChildrenIndexs.end(), secondMinIndex) !=grandChildrenIndexs.end()){
+		vector<int>::iterator it;
+
+  		for (it  = grandChildrenIndexs.begin(); it != grandChildrenIndexs.end(); it++){
+			if (array[*it]==secondMIn){
+		
+		//if (find(grandChildrenIndexs.begin(), grandChildrenIndexs.end(), secondMinIndex) !=grandChildrenIndexs.end()){
 			int parentIndex = getParentIndex(secondMinIndex);
 			if(parentIndex >= 0 && parentIndex < index && array[secondMinIndex]>array[parentIndex]){
 				swap(secondMinIndex,parentIndex);
 			}
+		}
 		percolatedown_min(secondMinIndex);
 		}
 	}
@@ -205,12 +211,18 @@ void minMaxHeap ::  percolatedown_max (int rootindex){
 				int parentIndex = getParentIndex(secondMaxIndex);
 			}
 		}*/
-		if (find(grandChildrenIndexs.begin(), grandChildrenIndexs.end(), secondMaxIndex) !=grandChildrenIndexs.end()){
+		vector<int>::iterator it;
+		for (it  = grandChildrenIndexs.begin(); it != grandChildrenIndexs.end(); it++){
+			if (array[*it]==secondMax){
+		// it = find (grandChildrenIndexs.begin(), grandChildrenIndexs.end(), secondMax);
+		// if (it != grandChildrenIndexs.end()){
+		//if (find(grandChildrenIndexs.begin(), grandChildrenIndexs.end(), secondMaxIndex) !=grandChildrenIndexs.end()){
 			int parentIndex = getParentIndex(secondMaxIndex);
 			if(parentIndex >= 0 && parentIndex < index && array[secondMaxIndex]<array[parentIndex]){
 			swap(secondMaxIndex,parentIndex);
 			}
 			percolatedown_max(secondMaxIndex);
+			}
 		}
 	}
 }
